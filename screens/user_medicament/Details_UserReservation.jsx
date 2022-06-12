@@ -283,12 +283,14 @@ else{
             />
        </View>
         <View style={{flexDirection:'row', justifyContent:'space-around', padding:10}}>
-     {confirm === null ?   <Button
+     {confirm == null ?   
+     <Button
             icon="playlist-edit"
             mode="contained"
             theme={theme} 
             onPress={() => setModal(true)}
-        > Modifier</Button> : null}
+        > Modifier</Button> 
+        : null}
 
         <Modal animationType='slide'
             transparent={true}
@@ -365,13 +367,15 @@ else{
     </View>
 
 </Modal>   
-{confirm === null ?<Button
+{confirm == null ? 
+<Button
         icon="delete"
         mode='contained'
         theme={theme}
         onPress={() => annulerReserv()}>
          Annuler
-     </Button> : null}
+     </Button>
+      : null}
 </View>
 <Dialog
             isVisible={visible1}
