@@ -24,7 +24,7 @@ const ProvideSocketContext = ({ children }) => {
     const responseListener = useRef();
 
     useEffect(() => {
-        socket.on("receive-notification", async ({ notif, sender, time }) => {
+        socket.on("receive-notification", async ({ notif }) => {
             console.log(notif);
             click(notif);
         });

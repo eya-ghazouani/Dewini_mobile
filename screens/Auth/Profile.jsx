@@ -276,8 +276,9 @@ return (
         icon="account-edit"
         mode="contained"
         theme={theme} 
-        // onPress={() => click('texting the notif first teste')}> Modifier
-        onPress={() => setModal(true)}> Modifier
+         onPress={() => setModal(true)}>
+                    {/* // onPress={() => click('texting the notif first teste')} */}
+             Modifier
     </Button>
 
   <Modal animationType='slide'

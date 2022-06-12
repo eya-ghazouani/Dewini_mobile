@@ -340,7 +340,7 @@ const toggleDialog1 = () => {
                 
             </View>
         <View style={{flexDirection:'row', justifyContent:'space-around', padding:10}}>
-     {confirm===null  ? <Button
+     {etat===false ? <Button
             icon="playlist-edit"
             mode="contained"
             theme={theme} 
@@ -518,7 +518,7 @@ const toggleDialog1 = () => {
     </View>
 
 </Modal>   
-{confirm===null ? <Button
+{etat==false ? <Button
         icon="delete"
         mode='contained'
         theme={theme}

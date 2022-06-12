@@ -167,7 +167,7 @@ const UserAddMedics = ( {navigation}) => {
         console.log(result);
 
         if (result.success === true){
-            Alert.alert("Produit ajouté avec succès, attend la confirmation");
+            Alert.alert("Produit ajouté,  si vous recevez l'acceptation initiale, vous pouvez nous contacter ou nous apporter vos dons");
             setImage(null);
             setTitle('');
             setQte('');

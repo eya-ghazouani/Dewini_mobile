@@ -126,12 +126,14 @@ const UserMedics = ({ navigation }) => {
           </View>
         :
           <>
-            {filterData.map(({image, _id, title}, idx)=> {
+            {filterData.map(({image, _id, title, etat, notify, dateNotify}, idx)=> {
+              
               return (
                   <TouchableOpacity key={idx}
                       onPress={() => navigation.push('Details_UserMedic', {id: _id})}
                   >
-                      <Card_product  image={image} title={title} id={_id} />
+                      <Card_product  image={image} title={title} id={_id} etat={etat} notify={notify} dateNotify={dateNotify} />
+               
                   </TouchableOpacity>
               )
             })}

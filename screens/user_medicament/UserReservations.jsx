@@ -118,12 +118,12 @@ const UserReservations = ({ navigation }) => {
           </View>
         :
           <>
-            {filterData.map(({date_reserv, ordonnance,qte_reserv, _id}, idx)=> {
+            {filterData.map(({date_reserv, ordonnance,qte_reserv, _id, confirm, notify,dateNotify}, idx)=> {
               return (
                   <TouchableOpacity key={idx}
                       onPress={() => navigation.push('Details_UserReservation', {id: _id})}
                   >
-                      <Card_Reservation  date_reserv={date_reserv} ordonnance={ordonnance} qte_reserv={qte_reserv} id={_id} />
+                      <Card_Reservation  date_reserv={date_reserv} ordonnance={ordonnance} qte_reserv={qte_reserv} confirm={confirm} notify={notify} dateNotify={dateNotify} id={_id} />
                   </TouchableOpacity>
               )
             })}

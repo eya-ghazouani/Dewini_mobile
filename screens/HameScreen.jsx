@@ -161,7 +161,7 @@ const searchFilterCat = (text) => {
         :
          <>
     {filterData.slice(0, 13).map(({title, image,qte, _id, etat}, idx) => {
-               if ( qte > 0) {   
+               if (( qte > 0) && (etat===true)){   
             return (
               <TouchableOpacity 
                 key={idx}

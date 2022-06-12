@@ -122,6 +122,7 @@ else{
         let resultData = await result.json();
         
         if (resultData.success === true) {
+            
             socket.emit('log_in', resultData.data._id);
             const jsonValue = JSON.stringify(resultData.data);
             await AsyncStorage.setItem('user', jsonValue);
@@ -132,7 +133,7 @@ else{
             );
         } else {
             Alert.alert(
-                'Utilisateur invalide',
+                'Utilisateur itrouvable',
                 resultData.message,
                 [{ text: "D'accord" }]
             );

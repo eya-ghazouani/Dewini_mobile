@@ -1,11 +1,13 @@
 import { View, Text, Dimensions, StyleSheet,Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import {Card} from 'react-native-shadow-cards';
+import * as Animatable from 'react-native-animatable';
+import Feather from 'react-native-vector-icons/Feather'
 
 const windowWidth = Dimensions.get('window').width;
 
 
-const Card_product = ({title,image,id}) => {
+const Card_product = ({title,image,id, etat, dateNotify,notify}) => {
   return (
     <Card style={styles.mycard}  >
     <View  key={id} style={styles.cardView}>
@@ -18,6 +20,24 @@ const Card_product = ({title,image,id}) => {
       <View style={styles.viewDesc}>
           <Text numberOfLines={2} style={styles.title}>{title}</Text>
       </View>
+      {etat === false ?
+                <Text style={{color:'gray'}}>En attente...</Text> 
+                : null 
+              }
+      {etat === true ?
+  <Text style={{color:'green'}}>Acceptée</Text> 
+                  : null 
+
+                
+              }
+      {etat === null?
+                <Text style={{color:'red'}}>Réfusée</Text> 
+                : null 
+              }
+      {notify == true  && etat!==true?
+                <Text style={{color:'orange'}}>Acceptation initiale..</Text> 
+                : null 
+              }
     </View> 
   </Card>
   )

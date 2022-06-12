@@ -110,6 +110,7 @@ const updateError = (error, stateUpdater)=>{
     const [confirm, setConfirm] = useState(null)
     const [type, setType] = useState('')
     const [forme, setForme] = useState('')
+    const [confirmInitial, setConfirmInitial] = useState('')
     const [deadline, setDeadline] = useState('')
     const [category, setCategory] = useState('')
     const [categories, setCategories] = useState([]);
@@ -137,6 +138,7 @@ const updateError = (error, stateUpdater)=>{
             setPic(resultDataprod.data.image)
             setDeadline(resultDataprod.data.deadline);
             setConfirm(resultDataprod.data.confirm);
+            setConfirmInitial(resultDataprod.data.notify);
         } else {
             Alert.alert(
                 'ERROR',
@@ -281,7 +283,7 @@ else{
             />
        </View>
         <View style={{flexDirection:'row', justifyContent:'space-around', padding:10}}>
-     {confirm == false || confirm == true ?   <Button
+     {confirm === null ?   <Button
             icon="playlist-edit"
             mode="contained"
             theme={theme} 
@@ -363,7 +365,7 @@ else{
     </View>
 
 </Modal>   
-{confirm == false || confirm ==true ?<Button
+{confirm === null ?<Button
         icon="delete"
         mode='contained'
         theme={theme}
