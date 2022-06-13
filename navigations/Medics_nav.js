@@ -8,6 +8,8 @@ import Details_Medic from '../screens/Details_Medics'
 import Reservation from '../screens/user_medicament/UserReservations'
 import AllCategories from '../screens/AllCategories';
 import AllProducts from '../screens/AllProducts';
+import AllReserv from '../screens/user_medicament/UserReservations';
+
 const Stack = createStackNavigator();
 
 const Medics_nav = () => {
@@ -25,6 +27,8 @@ const Medics_nav = () => {
        <Stack.Screen name='Details_Medic' component={Details_Medic} />
        <Stack.Screen name='AllCategories' component={AllCategories} /> 
        <Stack.Screen name='AllProducts' component={AllProducts} /> 
+       <Stack.Screen name='AllReserv' component={AllReserv} /> 
+
 
 
         

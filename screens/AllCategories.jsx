@@ -77,6 +77,7 @@ useEffect(() => {
         <View style={{maxWidth: windowwidth * 0.88, marginTop: -windowheight * 0.07 , flexDirection: 'row',  marginHorizontal: windowwidth * 0.06, flexWrap: 'wrap' }} >
 
           {filterData.map(({nom, image, _id}, idx) => {
+                      if(nom !== 'Inconnu' ){
             return (
               <TouchableOpacity 
                 key={idx}
@@ -84,11 +85,9 @@ useEffect(() => {
               >
                 <Categorie_card image={image} nom={nom} id={_id} /> 
               </TouchableOpacity>
-            );
+            ); }
           })}
-            
-
-          
+                    
         </View>
         
       </ScrollView>

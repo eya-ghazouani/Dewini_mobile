@@ -123,15 +123,17 @@ const searchFilterCat = (text) => {
         :
          <>
           
-          {filterDataCat.map(({nom, image, _id}, idx) => {
-            return (
-              <TouchableOpacity 
+          {filterDataCat.slice(0, 6).map(({nom, image, _id}, idx) => {
+          if(nom !== 'Inconnu' )
+           return (
+                 <TouchableOpacity 
                 key={idx}
                 onPress={() => navigation.push('Medics', {id: _id})}
               >
-               <Categorie_card image={image} nom={nom} id={_id} />
+                          <Categorie_card image={image} nom={nom} id={_id} /> 
               </TouchableOpacity>
-            );
+              
+            ); 
           })} 
           </>
 }
@@ -160,7 +162,7 @@ const searchFilterCat = (text) => {
           </View>
         :
          <>
-    {filterData.slice(0, 13).map(({title, image,qte, _id, etat}, idx) => {
+    {filterData.slice(0, 12).map(({title, image,qte, _id, etat}, idx) => {
                if (( qte > 0) && (etat===true)){   
             return (
               <TouchableOpacity 

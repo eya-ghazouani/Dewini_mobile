@@ -133,7 +133,7 @@ else{
             );
         } else {
             Alert.alert(
-                'Utilisateur itrouvable',
+                'Vérifiez vos informations',
                 resultData.message,
                 [{ text: "D'accord" }]
             );

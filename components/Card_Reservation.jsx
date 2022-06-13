@@ -1,18 +1,36 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { View, Text, Dimensions, Image } from 'react-native'
 import {Card} from 'react-native-shadow-cards';
+import moment from 'moment';
 
 const windowWidth = Dimensions.get('window').width;
 const windowheight = Dimensions.get('window').height;
 
-const Card_Reservation = ({ date_reserv, ordonnance,confirm, notify,dateNotify,id }) => {
+const Card_Reservation = ({ date_reserv, ordonnance,confirm, notify,dateNotify,limit,idproduit,id }) => {
+
+  const [pic, setPic] = useState(null);
+  const fetchData = async () => {
+        
+
+     let resultprod = await fetch(`${path}/produit/${idproduit}`);
+
+      let resultDataprod = await resultprod.json();
+      if (resultDataprod.success === true ){
+        setPic(resultDataprod.data.image)
+      }
+  }
+
+  useEffect(() => {
+
+    fetchData();
+}, [])
 
   return (
     <View >
       <Card style={{width: windowWidth * 0.6, height:  windowheight * 0.2, borderRadius: 5, alignContent: 'center', alignItems: 'center', backgroundColor: '#fff', margin: windowWidth * 0.01 }}>
         
           <Image
-              source={{ uri: `${path}/uploads/images/${ordonnance}`}}
+              source={{ uri: `${path}/uploads/images/${pic}`}}
               style={{ width: '100%', height: windowheight * 0.15, borderTopLeftRadius: 5, borderTopRightRadius: 5}}
           />
           <View style={{ width: '100%', height: windowheight * 0.05, alignItems: 'center', alignContent: 'center'}}  >

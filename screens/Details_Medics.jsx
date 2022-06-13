@@ -132,7 +132,9 @@ const handleUpload= async()=>{
             setImageOrd(null);
             setQteReserv('');
             setDate(new Date());
-            navigation.goBack();
+            // navigation.goBack();
+            navigation.navigate('AllReserv');
+
         } else {
             Alert.alert("Erreur", result.message, [
                 { text: "fermer" },
@@ -342,7 +344,7 @@ const handleUpload= async()=>{
         </TouchableOpacity>
 <Button  
          style={{width: "40%"}}
-         theme={theme}
+         theme={themeupload}
           onPress={()=>setModal(false)}  
  >
          Annuler

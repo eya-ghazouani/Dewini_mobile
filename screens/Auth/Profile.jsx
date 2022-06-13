@@ -21,7 +21,6 @@ const WindowHeight = Dimensions.get('window').height;
 
 const Profile = () => {
    
-    const { click } = useContext(SocketContext);
     const { auth, setChanged } = useContext(MainContext); const [password, setPassword] = useState(null);
     const [visible1, setVisible1] = useState(false);
     const [image, setImage] = useState(null);
@@ -277,7 +276,6 @@ return (
         mode="contained"
         theme={theme} 
          onPress={() => setModal(true)}>
-                    {/* // onPress={() => click('texting the notif first teste')} */}
              Modifier
     </Button>
 

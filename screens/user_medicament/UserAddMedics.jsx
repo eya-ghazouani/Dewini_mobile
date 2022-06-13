@@ -119,7 +119,7 @@ const UserAddMedics = ( {navigation}) => {
        if(selectedValueType=='Medicament'){
             if(!selectedValueForme) return updateError('Tous les champs sont obligatoire!', setError)
             else if(moment(date).isBefore(moment(today).add(30, 'days'))){
-                return updateError('Date invalide', setError)
+                return updateError("La date de don doit avoir au minimum un mois de date d'éxpiration", setError)
             }
         }
        
@@ -167,8 +167,10 @@ const UserAddMedics = ( {navigation}) => {
         console.log(result);
 
         if (result.success === true){
-            Alert.alert("Produit ajouté,  si vous recevez l'acceptation initiale, vous pouvez nous contacter ou nous apporter vos dons");
-            setImage(null);
+            Alert.alert("Succès", result.message, [
+                { text: "fermer" },
+            ]);           
+             setImage(null);
             setTitle('');
             setQte('');
             setDate(new Date());
@@ -201,7 +203,6 @@ const UserAddMedics = ( {navigation}) => {
      >        
           <ScrollView  showsVerticalScrollIndicator={false}>
                 <View style={styles.root}>
-                {error ? <Text style={{ color: 'red', fontSize:18, textAlign:'center', marginTop:5}}>{error}</Text> : null} 
 
                     {image && (
                         <Image
@@ -227,32 +228,7 @@ const UserAddMedics = ( {navigation}) => {
                         onChangeText={text => setQte(text)}
                         keyboardType='number-pad'
                     /> 
-                    {/* <TextInput 
-                        label='Deadline'
-                        style={styles.inputStyle}
-                        value={deadline}
-                        mode='outlined'
-                        theme={theme}
-                        onChangeText={text => setDeadline(text)}
-                    /> */}
 
-                   
-                    {/* <TextInput 
-                        label='Type'
-                        style={styles.inputStyle}
-                        value={type}
-                        mode='outlined'
-                        theme={theme}
-                        onChangeText={text => setType(text)}
-                    />  */}
-                    {/* <TextInput 
-                        label='Category'
-                        style={styles.inputStyle}
-                        value={category}
-                        mode='outlined'
-                        theme={theme}
-                        onChangeText={text => setCategory(text)}
-                    />  */}
                 <View style={{flexDirection:'row'}}>
                  <Title style={{padding:5, margin:5,width: '30%'}}>Type:</Title>
                     <View style={{}}>
@@ -339,6 +315,7 @@ const UserAddMedics = ( {navigation}) => {
                         onChange={onChange}
                         />
                     )}
+{error ? <Text style={{ color: 'red', fontSize:18, textAlign:'center', marginTop:5}}>{error}</Text> : null} 
                     <Button 
                         icon={image==""?"upload": "check"}
                         mode="contained" 

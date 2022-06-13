@@ -4,14 +4,14 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const Tab = createBottomTabNavigator();
 
 import Profile from '../screens/Auth/Profile';
 import UserMedicNav from './UserMedicNav';
 import Medics_nav from './Medics_nav';
 import UserReservNav from './UserReservNav';
-
+import Contact from '../screens/Contact';
 const MainNav = () => {
   return (
     <Tab.Navigator
@@ -54,6 +54,14 @@ const MainNav = () => {
             options={{
                 tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="account"  color={color} size={26} />
+                )
+            }} 
+        />
+        <Tab.Screen name="Contactez-nous   " 
+            component={Contact} 
+            options={{
+                tabBarIcon: ({ color }) => (
+                    <MaterialIcons name="connect-without-contact"  color={color} size={26} />
                 )
             }} 
         />

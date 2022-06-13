@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Dimensions, StyleSheet, TextInput, Scroll
 import Ionicons from "react-native-vector-icons/Ionicons"
 import * as Animatable from 'react-native-animatable';
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
+import moment from 'moment';
 
 import {Picker} from '@react-native-picker/picker';
 
@@ -118,12 +119,15 @@ const UserReservations = ({ navigation }) => {
           </View>
         :
           <>
-            {filterData.map(({date_reserv, ordonnance,qte_reserv, _id, confirm, notify,dateNotify}, idx)=> {
+            {filterData.map(({date_reserv, ordonnance,qte_reserv, _id, confirm, notify,idproduit,dateNotify}, idx)=> {
+              
               return (
                   <TouchableOpacity key={idx}
                       onPress={() => navigation.push('Details_UserReservation', {id: _id})}
                   >
-                      <Card_Reservation  date_reserv={date_reserv} ordonnance={ordonnance} qte_reserv={qte_reserv} confirm={confirm} notify={notify} dateNotify={dateNotify} id={_id} />
+                      <Card_Reservation  date_reserv={date_reserv} ordonnance={ordonnance} 
+                      qte_reserv={qte_reserv} confirm={confirm} notify={notify}
+                       dateNotify={dateNotify} idproduit={idproduit} limit={moment(dateNotify).add(7, 'days')} id={_id}  />
                   </TouchableOpacity>
               )
             })}
